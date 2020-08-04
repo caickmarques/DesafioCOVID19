@@ -181,7 +181,7 @@ input:checked+.slider:before {
 
 @media (max-width: 908px) {
     footer {
-        position: absolute;
+        position: fixed;
     }
     .dark-mode label {
         margin-left: .3em;
@@ -189,5 +189,6 @@ input:checked+.slider:before {
     .card-deck {
         display: flex;
         flex-direction: column;
+        margin-bottom: 2em;
     }
 }
