@@ -181,6 +181,9 @@ input:checked+.slider:before {
 
 @media (max-width: 908px) {
     footer {
-        position: relative;
+        position: absolute;
+    }
+    .dark-mode label {
+        margin-left: .3em;
     }
 }
