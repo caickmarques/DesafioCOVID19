@@ -186,4 +186,8 @@ input:checked+.slider:before {
     .dark-mode label {
         margin-left: .3em;
     }
+    .card-deck {
+        display: flex;
+        flex-direction: column;
+    }
 }
