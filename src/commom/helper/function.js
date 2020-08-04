@@ -1,28 +1,4 @@
-const url = 'https://api.covid19api.com/countries';
-
-
-const listarPaises = async() => {
-
-    const paises = await axios.get(url);
-
-    return paises;
-}
-
-const loadPaises = async() => {
-    const { data } = await listarPaises();
-
-    const mainContainer = document.getElementById('listarPaises');
-
-    data.forEach(element => {
-        const lista = createMenu(element);
-
-        mainContainer.insertAdjacentHTML('beforeend', lista);
-    });
-
-    listarDados();
-    loadDados();
-}
-
+// ================= Listar os paises no dropdown ===========
 const createMenu = ({
     Country,
     Slug
@@ -32,24 +8,7 @@ const createMenu = ({
     return div;
 }
 
-const listarDados = async() => {
-    const paisURL = document.location.href.split('?')[1];
-
-    const dados = await axios.get(`https://api.covid19api.com/country/${paisURL}`);
-
-    return dados;
-}
-
-const loadDados = async() => {
-    let { data } = await listarDados();
-
-    data = data[data.length - 1];
-
-    const mainContainer = document.getElementById('main-container');
-    const info = createInfo(data);
-
-    mainContainer.insertAdjacentHTML('beforeend', info);
-}
+// ================== Cria as informações da página =============
 
 const createInfo = ({
     Country,
@@ -98,6 +57,8 @@ const createInfo = ({
     return div;
 }
 
+// ========================= Formatar a data ====================
+
 const dataAtualFormatada = (data) => {
     const atualizacao = new Date(data);
     const hoje = new Date();
@@ -113,4 +74,51 @@ const dataAtualFormatada = (data) => {
     }
 }
 
-loadPaises();
+
+// ============================== Configuração para o modo Dark ========
+
+const darkMode = () => {
+    const nav = document.getElementById('activeDark');
+    const footer = document.getElementById('footerDark');
+    btnDark();
+
+    nav.classList.remove('navbar-light', 'bg-light');
+    nav.classList.add('navbar-dark', 'bg-dark');
+    footer.classList.add('footerDark');
+    let clique = document.getElementById('darkMode').value;
+
+    document.getElementById('darkMode').onclick = function() {
+        if (clique == 'on') {
+            clique = 'off';
+            nav.classList.add('navbar-light', 'bg-light');
+            nav.classList.remove('navbar-dark', 'bg-dark');
+            footer.classList.remove('footerDark');
+            btnLight();
+        } else {
+            clique = 'on';
+            nav.classList.add('navbar-dark', 'bg-dark');
+            nav.classList.remove('navbar-light', 'bg-light');
+            footer.classList.add('footerDark');
+            btnDark();
+        }
+    }
+}
+
+const btnDark = () => {
+    const darkBtn = document.getElementsByClassName('btn');
+    for (let i = 1; i < darkBtn.length; i++) {
+        darkBtn[i].classList.add('btn-light');
+        darkBtn[i].classList.remove('btn-dark');
+    }
+}
+
+const btnLight = () => {
+    const darkBtn = document.getElementsByClassName('btn');
+    for (let i = 1; i < darkBtn.length; i++) {
+        darkBtn[i].classList.remove('btn-light');
+        darkBtn[i].classList.add('btn-dark');
+    }
+}
+
+
+// ============================================================
