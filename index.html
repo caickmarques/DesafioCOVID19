@@ -13,24 +13,26 @@
 
 </head>
 
-<body>
+<body id="main">
     <nav class="navbar navbar-expand-lg navbar-light bg-light" id="activeDark">
-        <a class="navbar-brand" href="index.html">Casos de Covid-19</a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
-          <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
         </button>
+
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" id="listarPaises">&times;</a>
+        </div>
+        <span class="menuPaises" onclick="openNav()">&#9776; Paises</span>
 
         <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Paises
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="listarPaises">
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     </div>
                 </li>
             </ul>
+
 
 
             <form class="form-inline my-2 my-lg-0">
@@ -43,8 +45,15 @@
 
 
     <div id="main-container">
-        <h1>Bem vindo ao informativo do Covid-19</h1>
+        <h1><a href="index.html">Casos de Covid-19</a></h1>
+
+        <div id="bemVindo">
+            <h1>Bem vindo ao informativo de casos de Covid-19</h1>
+            <h4>
+                Você pode selecionar o pais no menu a esquerda para mais informações.</h4>
+        </div>
     </div>
+
     <footer id='footerDark'>
         <div class="informacoesPessoais">
             <ul>

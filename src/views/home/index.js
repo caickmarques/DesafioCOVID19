@@ -45,6 +45,11 @@ const loadDados = async() => {
     const info = createInfo(data);
 
     mainContainer.insertAdjacentHTML('beforeend', info);
+
+    const removeBemVindo = document.getElementById("bemVindo");
+    if (removeBemVindo.parentNode) {
+        removeBemVindo.parentNode.removeChild(removeBemVindo);
+    }
 }
 
 // ======================= Pesquisando pelo campo de pesquisa ===========================

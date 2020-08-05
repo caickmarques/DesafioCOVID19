@@ -4,7 +4,7 @@ const createMenu = ({
     Slug
 }) => {
     const div =
-        `<a class="dropdown-item" href="index.html?${Slug}">${Country}</a>`;
+        `<a href="index.html?${Slug}">${Country}</a>`;
     return div;
 }
 
@@ -131,3 +131,11 @@ const btnLight = () => {
 
 
 // ============================================================
+
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}

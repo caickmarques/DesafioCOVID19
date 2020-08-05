@@ -13,6 +13,16 @@ h3 {
     text-align: center;
 }
 
+h1 a {
+    text-decoration: none;
+    color: #343a40;
+}
+
+h1 a:hover {
+    text-decoration: none;
+    color: #1b4f83;
+}
+
 .card-deck {
     margin: 30px;
     display: flex;
@@ -41,6 +51,13 @@ h3 {
 }
 
 .card-body {
+    text-align: center;
+}
+
+#bemVindo {
+    margin-top: 15%;
+    display: flex;
+    flex-direction: column;
     text-align: center;
 }
 
@@ -100,6 +117,10 @@ footer .btn-light {
 
 
 /* The switch - the box around the slider */
+
+.navbar-dark {
+    color: white;
+}
 
 .dark-mode {
     display: flex;
@@ -179,6 +200,60 @@ input:checked+.slider:before {
     border-radius: 50%;
 }
 
+
+/* =============================================== */
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #343a40;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.menuPaises {
+    font-size: 30px;
+    cursor: pointer;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+    .sidenav a {
+        font-size: 18px;
+    }
+    nav .navbar {
+        flex-direction: row-reverse;
+    }
+}
+
 @media (max-width: 908px) {
     footer {
         position: fixed;
@@ -190,5 +265,8 @@ input:checked+.slider:before {
         display: flex;
         flex-direction: column;
         margin-bottom: 2em;
+    }
+    nav .navbar {
+        flex-direction: row-reverse;
     }
 }
