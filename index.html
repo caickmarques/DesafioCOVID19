@@ -16,6 +16,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light" id="activeDark">
         <a class="navbar-brand" href="index.html">Casos de Covid-19</a>
+
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -31,9 +32,11 @@
                 </li>
             </ul>
 
+
             <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar" id="pesquisa">
+                <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" id="pesquisa" autocomplete="off" list="paises">
                 <button class="btn btn-outline-success my-2 my-sm-0" onclick="pesquisar()">Pesquisar</button>
+                <datalist id="paises"></datalist>
             </form>
         </div>
     </nav>

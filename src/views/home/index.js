@@ -13,11 +13,14 @@ const loadPaises = async() => {
     const { data } = await listarPaises();
 
     const mainContainer = document.getElementById('listarPaises');
+    const teste = document.getElementById('paises');
 
     data.forEach(element => {
         const lista = createMenu(element);
+        const autoComplete = createAutocomplete(element);
 
         mainContainer.insertAdjacentHTML('beforeend', lista);
+        teste.insertAdjacentHTML('beforeend', autoComplete);
     });
 
     listarDados();
@@ -46,11 +49,10 @@ const loadDados = async() => {
 
 // ======================= Pesquisando pelo campo de pesquisa ===========================
 
-// const pesquisar = () => {
-//     const pesquisa = document.getElementById('pesquisa').value;
-
-//     document.location.href(`index.html?${pesquisa}`);
-
-// }
+const pesquisar = async() => {
+    const paisURL = document.getElementById('pesquisa').value.toLowerCase();
+    event.preventDefault();
+    window.location = `index.html?${paisURL}`;
+}
 
 loadPaises();

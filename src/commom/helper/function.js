@@ -8,6 +8,15 @@ const createMenu = ({
     return div;
 }
 
+const createAutocomplete = ({
+    Country,
+    Slug
+}) => {
+    const div = `<option value="${Slug}">${Country}</option>`;
+
+    return div;
+}
+
 // ================== Cria as informações da página =============
 
 const createInfo = ({
