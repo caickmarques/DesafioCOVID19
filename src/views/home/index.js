@@ -8,6 +8,14 @@ const listarPaises = async() => {
 }
 
 
+// ============= Função para ondenar países ===================
+function compare(a, b) {
+    if (a.Country < b.Country)
+        return -1;
+    if (a.Country > b.Country)
+        return 1;
+    return 0;
+}
 // ================================ Carregando os paises no menu dropdown ===================
 const loadPaises = async() => {
     const { data } = await listarPaises();
@@ -15,7 +23,7 @@ const loadPaises = async() => {
     const mainContainer = document.getElementById('listarPaises');
     const paisesAutoComplete = document.getElementById('paises');
 
-    data.sort().forEach(element => {
+    data.sort(compare).forEach(element => {
         const lista = createMenu(element);
         const autoComplete = createAutocomplete(element);
 
