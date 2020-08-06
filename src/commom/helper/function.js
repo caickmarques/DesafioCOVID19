@@ -87,29 +87,28 @@ const dataAtualFormatada = (data) => {
 // ============================== Configuração para o modo Dark ========
 
 const darkMode = () => {
-    const nav = document.getElementById('activeDark');
-    const footer = document.getElementById('footerDark');
-    btnDark();
+    setDarkMode();
 
-    nav.classList.remove('navbar-light', 'bg-light');
-    nav.classList.add('navbar-dark', 'bg-dark');
-    footer.classList.add('footerDark');
     let clique = document.getElementById('darkMode').value;
+    localStorage.setItem('clique', true);
 
     document.getElementById('darkMode').onclick = function() {
+
         if (clique == 'on') {
             clique = 'off';
-            nav.classList.add('navbar-light', 'bg-light');
-            nav.classList.remove('navbar-dark', 'bg-dark');
-            footer.classList.remove('footerDark');
+            removeDarkMode();
+            // nav.classList.add('navbar-light', 'bg-light');
+            // nav.classList.remove('navbar-dark', 'bg-dark');
+            // footer.classList.remove('footerDark');
             btnLight();
+            localStorage.setItem('clique', false);
         } else {
             clique = 'on';
-            nav.classList.add('navbar-dark', 'bg-dark');
-            nav.classList.remove('navbar-light', 'bg-light');
-            footer.classList.add('footerDark');
-            btnDark();
+            setDarkMode();
+            localStorage.setItem('clique', true);
         }
+
+
     }
 }
 
@@ -129,6 +128,25 @@ const btnLight = () => {
     }
 }
 
+const setDarkMode = () => {
+    const nav = document.getElementById('activeDark');
+    const footer = document.getElementById('footerDark');
+    btnDark();
+
+    nav.classList.replace('navbar-light', 'navbar-dark');
+    nav.classList.replace('bg-light', 'bg-dark');
+    footer.classList.add('footerDark');
+}
+
+const removeDarkMode = () => {
+    const nav = document.getElementById('activeDark');
+    const footer = document.getElementById('footerDark');
+    btnLight();
+
+    nav.classList.replace('navbar-dark', 'navbar-light');
+    nav.classList.replace('bg-dark', 'bg-light');
+    footer.classList.remove('footerDark');
+}
 
 // ============================================================
 
@@ -138,4 +156,13 @@ function openNav() {
 
 function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
+}
+
+
+const eneblad = localStorage.getItem('clique');
+if (eneblad == 'true') {
+    setDarkMode();
+
+} else {
+    removeDarkMode();
 }

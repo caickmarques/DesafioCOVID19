@@ -13,14 +13,14 @@ const loadPaises = async() => {
     const { data } = await listarPaises();
 
     const mainContainer = document.getElementById('listarPaises');
-    const teste = document.getElementById('paises');
+    const paisesAutoComplete = document.getElementById('paises');
 
-    data.forEach(element => {
+    data.sort().forEach(element => {
         const lista = createMenu(element);
         const autoComplete = createAutocomplete(element);
 
         mainContainer.insertAdjacentHTML('beforeend', lista);
-        teste.insertAdjacentHTML('beforeend', autoComplete);
+        paisesAutoComplete.insertAdjacentHTML('beforeend', autoComplete);
     });
 
     listarDados();
