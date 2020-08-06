@@ -266,7 +266,7 @@ input:checked+.slider:before {
         flex-direction: column;
         margin-bottom: 2em;
     }
-    nav .navbar {
+    nav {
         flex-direction: row-reverse;
     }
 }
