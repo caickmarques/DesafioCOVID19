@@ -87,30 +87,17 @@ const dataAtualFormatada = (data) => {
 // ============================== Configuração para o modo Dark ========
 
 const darkMode = () => {
-    setDarkMode();
+    let check = document.getElementById('darkMode').checked;
 
-    let clique = document.getElementById('darkMode').value;
-    localStorage.setItem('clique', true);
-
-    document.getElementById('darkMode').onclick = function() {
-
-        if (clique == 'on') {
-            clique = 'off';
-            removeDarkMode();
-            // nav.classList.add('navbar-light', 'bg-light');
-            // nav.classList.remove('navbar-dark', 'bg-dark');
-            // footer.classList.remove('footerDark');
-            btnLight();
-            localStorage.setItem('clique', false);
-        } else {
-            clique = 'on';
-            setDarkMode();
-            localStorage.setItem('clique', true);
-        }
-
-
+    if (check == false) {
+        removeDarkMode();
+        localStorage.setItem('check', false);
+    } else {
+        setDarkMode();
+        localStorage.setItem('check', true);
     }
 }
+
 
 const btnDark = () => {
     const darkBtn = document.getElementsByClassName('btn');
@@ -132,7 +119,6 @@ const setDarkMode = () => {
     const nav = document.getElementById('activeDark');
     const footer = document.getElementById('footerDark');
     btnDark();
-
     nav.classList.replace('navbar-light', 'navbar-dark');
     nav.classList.replace('bg-light', 'bg-dark');
     footer.classList.add('footerDark');
@@ -142,7 +128,6 @@ const removeDarkMode = () => {
     const nav = document.getElementById('activeDark');
     const footer = document.getElementById('footerDark');
     btnLight();
-
     nav.classList.replace('navbar-dark', 'navbar-light');
     nav.classList.replace('bg-dark', 'bg-light');
     footer.classList.remove('footerDark');
@@ -159,10 +144,11 @@ function closeNav() {
 }
 
 
-const eneblad = localStorage.getItem('clique');
+const eneblad = localStorage.getItem('check');
 if (eneblad == 'true') {
     setDarkMode();
-
+    document.getElementById('darkMode').checked = true;
 } else {
     removeDarkMode();
+    document.getElementById('darkMode').checked = false;
 }
