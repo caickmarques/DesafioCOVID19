@@ -4,16 +4,17 @@ const createMenu = ({
     Slug
 }) => {
     const div =
-        `<a href="index.html?${Slug}">${Country}</a>`;
+        `<a href="#" onclick="alteraURL('${Slug}');event.preventDefault();">${Country}</a>`;
     return div;
 }
+
+// ==================== Função autocomplete ===================
 
 const createAutocomplete = ({
     Country,
     Slug
 }) => {
     const div = `<option value="${Slug}">${Country}</option>`;
-
     return div;
 }
 
@@ -65,6 +66,7 @@ const createInfo = ({
     `
     return div;
 }
+
 
 // ========================= Formatar a data ====================
 
@@ -133,7 +135,7 @@ const removeDarkMode = () => {
     footer.classList.remove('footerDark');
 }
 
-// ============================================================
+// ======================= Menu lateral ==============================
 
 function openNav() {
     document.getElementById("mySidenav").style.width = "250px";
@@ -143,6 +145,7 @@ function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
 }
 
+// ============= Permanecer checado quando atualiza a página ==========
 
 const eneblad = localStorage.getItem('check');
 if (eneblad == 'true') {

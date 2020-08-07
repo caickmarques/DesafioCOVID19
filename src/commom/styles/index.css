@@ -242,6 +242,12 @@ input:checked+.slider:before {
     cursor: pointer;
 }
 
+.spinner-corona {
+    display: flex;
+    justify-content: center;
+    margin-top: 14em;
+}
+
 @media screen and (max-height: 450px) {
     .sidenav {
         padding-top: 15px;

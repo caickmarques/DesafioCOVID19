@@ -17,9 +17,9 @@ function compare(a, b) {
     return 0;
 }
 // ================================ Carregando os paises no menu dropdown ===================
+
 const loadPaises = async() => {
     const { data } = await listarPaises();
-
     const mainContainer = document.getElementById('listarPaises');
     const paisesAutoComplete = document.getElementById('paises');
 
@@ -30,36 +30,40 @@ const loadPaises = async() => {
         mainContainer.insertAdjacentHTML('beforeend', lista);
         paisesAutoComplete.insertAdjacentHTML('beforeend', autoComplete);
     });
+}
 
-    listarDados();
-    loadDados();
+
+function loading() {
+    document.getElementById("bemVindo").style.display = "none";
+    document.getElementById("spinner").style.display = "flex";
 }
 
 // ==================================== Listando as informações dos casos de Covid-19===========
+const paisURL = document.location.href.split('?')[1];
 const listarDados = async() => {
-    const paisURL = document.location.href.split('?')[1];
-
+    loading();
     const dados = await axios.get(`https://api.covid19api.com/country/${paisURL}`);
-
+    document.getElementById("spinner").style.display = "none";
     return dados;
 }
 
+const alteraURL = (url) => {
+    document.location.href = `index.html?${url}`;
+}
 const loadDados = async() => {
     let { data } = await listarDados();
-
     data = data[data.length - 1];
+    console.log(data);
 
     const mainContainer = document.getElementById('main-container');
     const info = createInfo(data);
 
     mainContainer.insertAdjacentHTML('beforeend', info);
-
-    const removeBemVindo = document.getElementById("bemVindo");
-    if (removeBemVindo.parentNode) {
-        removeBemVindo.parentNode.removeChild(removeBemVindo);
-    }
 }
 
+if (paisURL != undefined) {
+    loadDados();
+}
 // ======================= Pesquisando pelo campo de pesquisa ===========================
 
 const pesquisar = async() => {
@@ -68,4 +72,7 @@ const pesquisar = async() => {
     window.location = `index.html?${paisURL}`;
 }
 
+const teste = (url) => {
+    console.log('Teste feito com sucesso; ' + url);
+}
 loadPaises();
