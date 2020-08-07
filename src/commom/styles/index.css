@@ -245,7 +245,7 @@ input:checked+.slider:before {
 .spinner-corona {
     display: flex;
     justify-content: center;
-    margin-top: 14em;
+    margin-top: 14%;
 }
 
 @media screen and (max-height: 450px) {
