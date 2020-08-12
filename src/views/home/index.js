@@ -68,11 +68,18 @@ if (paisURL != undefined) {
 
 const pesquisar = async() => {
     const paisURL = document.getElementById('pesquisa').value.toLowerCase();
-    event.preventDefault();
+    if (paisURL == "") {
+        document.location.href = 'index.html';
+        alert('Informe um pais');
+        return;
+    }
+
     window.location = `index.html?${paisURL}`;
+    event.preventDefault();
 }
 
 const teste = (url) => {
     console.log('Teste feito com sucesso; ' + url);
 }
+
 loadPaises();
