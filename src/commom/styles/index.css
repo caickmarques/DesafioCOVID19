@@ -117,7 +117,11 @@ body {
     align-items: center;
     width: auto;
     font-size: 4rem;
-    padding: 1rem 0;
+    padding: 1rem;
+}
+
+.card-deck .card+.card {
+    margin-top: 1rem;
 }
 
 .text-muted {
@@ -128,6 +132,7 @@ body {
 }
 
 .center-card {
+    width: auto;
     display: flex;
     justify-content: center;
     font-size: 4rem;
@@ -285,7 +290,7 @@ input:checked+.slider:before {
 
 /* =============================================== */
 
-@media (min-width: 1100px) {
+@media (min-width: 1000px) {
     .navbar {
         flex-direction: row;
     }
@@ -315,6 +320,9 @@ input:checked+.slider:before {
     .card-deck {
         flex-direction: row;
         font-size: 6rem;
+    }
+    .card-deck .card+.card {
+        margin-top: 0;
     }
     .center-card {
         font-size: 6rem;
